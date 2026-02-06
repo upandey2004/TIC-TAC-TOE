@@ -30,17 +30,23 @@ def check_draw(board):
     return True 
 
 def reset_board():
-    return [[' ' for _ in range(3)] for _ in range(3)]      
+    board=[[' ',' ',' '],
+           [' ',' ',' '],
+           [' ',' ',' ']]
+    
+    return board 
 
 def print_board(board):
     print("Current Board:")
-    for row in board:
-        for cell in row:
-            print(cell, end="")
-            if(cell!=row[-1]):
-                print("|", end="")
+    for row in range(3):
+        for col in range(3):
+            cell = board[row][col]
+            print(cell, end=" ")
+            if(col!=2):
+                print("|", end=" ")
         print()
-        print("-" * 5)
+        if(row!=2):
+            print("-" * 9)
 
 def position_to_indices(position):
     position -= 1 
